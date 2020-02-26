@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="https://kit.fontawesome.com/d5ecd8352e.js" crossorigin="anonymous"></script>
+    <script src="./node_modules/mustache/mustache.js"></script>
+    <script src="./data.js"></script>
+
+    <title>HW#0 Markup</title>
+</head>
+<body>
+    <header class="header">
+    </header>
+    <main class="main">
+        <section class="left-list">
+            <div class="container">
+                <div class="list-scroll list-scroll_left">
+                    <h2 class="header-topic">Stores list</h2>
+                    <div class="list-scroll__form">
+                        <form class="form">
+                            <input class="input input-duration" placeholder="search" autocomplete="off" id="input-stores">
+                            <a class="input-duration__button button" id="backspace"><i class="fas fa-backspace"></i></a>
+                            <a class="input-duration__button button" id="search"><i class="fas fa-search"></i></a>
+                            <a class="input-duration__button button" id="sync"><i class="fas fa-sync"></i></a>
+                        </form>
+                    </div>
+                    <div class="navigation">
+                        <a class="button"><i class="fas fa-arrow-up"></i></a>
+                        <a class="button"><i class="fas fa-paperclip"></i></a>
+                    </div>
+                    <ul class="list" id="stores-list">
+                    </ul>
+                    <div class="list-scroll__footer">
+                        <a class="button-create button" id="create-store">+ Create</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="right-list">
+            <div class="container" id="container-store-details">
+                <div class="selected-header">
+                    <h1 class="header-topic">Store is not selected</h1>
+                </div>
+                <div class="selected-main">
+                    <i class="fas fa-store-alt"></i>
+                    <p class="selected-main__discriotion-title">
+                        <span class="bold">The store is not selected</span><br>
+                    </p>
+                    <p class="selected-main__discriotion">please select the store to proceed</p>
+                </div>
+            </div>
+
+        </section>
+        <div class="window-modal" id="window-modal">
+            <div class="window-form">
+                <h2 class="window-form__header">Create new store</h2>
+                 <form class="form-create-store">
+                    <p class="correctly-name">Name:</p>
+                    <input type="text" name="" id="create-store-name" placeholder="Enter name">
+                    <p class="correctly-email">Email:</p>
+                    <input type="email" name="" id="create-store-email" placeholder="Enter email">
+                    <p class="correctly-phone">Phone number:</p>
+                    <input type="tel" name="" id="create-store-phone" placeholder="phone number">
+                    <p class="correctly-address">Address:</p>
+                    <input type="text" name="" id="create-store-address" placeholder="Enter adress">
+                    <p class="correctly-date">Established date:</p>
+                    <input type="date" name="" id="create-store-date" placeholder="MMM d,y">
+                    <p class="correctly-floor">Floor area:</p>
+                    <input type="number" name="" id="create-store-floor" placeholder="Enter floor area(in sq.m)">
+                </form>
+                <div class="form-create-store__footer">
+                    <a class="create-store store-form-button" id="create-new-store">Create</a>
+                    <a class="concel-store-form store-form-button" id="cancel-store-form">Cancel</a>
+                </div>
+            </div>
+        </div>
+        <div class="window-modal" id="modalProduct">
+            <div class="window-form window-form_product">
+                <h2 class="window-form__header">Create new product</h2>
+                <form class="form-create-store">
+                    <p class="correctly-name">Name:</p>
+                    <input type="text" name="" id="product-name" placeholder="Enter name">
+                    <p class="correctly-price">Price:</p>
+                    <div class="input-price"><input type="number" name="" id="product-price" placeholder="Enter price"></div>
+                    <p class="correctly-specs">Specs:</p>
+                    <input type="text" name="" id="product-specs" placeholder="Enter prodeuct specs">
+                    <p class="correctly-rating">Rating:</p>
+                    <input type="number" name="" id="product-rating" placeholder="Enter rating 1...5">
+                    <p class="correctly-supplier">Supplier info:</p>
+                    <input type="text" name="" id="product-supplier" placeholder="Enter supplier info">
+                    <p class="correctly-made">Made in:</p>
+                    <input type="text" name="" id="product-made" placeholder="Enter origin country">
+                    <p class="correctly-compny">Producion company name:</p>
+                    <input type="text" name="" id="product-company" placeholder="Enter manufacturer name">
+                    <p class="correctly-status">Status</p>
+                    <select name="language" size="4" id="product-status">
+                        <option value="OK" selected="selected">OK</option>
+                        <option value="STORAGE">STORAGE</option>
+                        <option value="OUT_OF_STOCK">OUT_OF_STOCK</option>
+                    </select>
+                </form>
+                <div class="form-create-store__footer">
+                    <a class="create-store store-form-button" id="createProduct">Create</a>
+                    <a class="concel-store-form store-form-button" id="cancel-detail-form">Cancel</a>
+                </div>
+            </div>
+        </div>
+        <div class="window-modal" id="delete-store-modal">
+            <div class="window-form window-form_delete">
+                <h2 class="window-form__header"><i class="fas fa-question"></i>Confirmation</h2>
+                 <form class="form-delete-product">
+                    <p class="delete-main">Are you sure you want to delete this store</p>
+                    <div class="form-delete-product__footer">
+                        <a class="delete-store-ok" id="delete-store-ok">Ok</a>
+                        <a class="delte-store-cancel" id="cancel-store-detail-form">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="window-modal" id="delete-store-detail-modal">
+            <div class="window-form window-form_delete">
+                <h2 class="window-form__header"><i class="fas fa-question"></i>Confirmation</h2>
+                 <form class="form-delete-product">
+                    <p class="delete-main">Are you sure you want to delete this product</p>
+                    <div class="form-delete-product__footer">
+                        <a class="delete-store-ok" id="delete-store-detail-ok">Ok</a>
+                        <a class="delte-store-cancel" id="cancel-store-detail-form">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="window-modal" id="loader">
+                <div class="loader"></div>
+            </div>
+    </main>
+    
+    <footer class="footer">
+
+    </footer>
+    <script src="./template.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
